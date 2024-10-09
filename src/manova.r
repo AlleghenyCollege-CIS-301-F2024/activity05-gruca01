@@ -63,4 +63,19 @@ ggplot(means_long, aes(x = epoch, y = mean_value, fill = measurement)) +
 # Add manova code below
 ##################################
 
-# TODO
+skulls.manova1 <-
+  manova(cbind(mb, bh, b1, nj) - as.factor(epoch),
+         data = skulls)
+
+summary(skulls.manova1, test = "Hotelling-Lawley")
+summary(skulls.manova1, test = "Roy")
+summary(skulls.manova1, test = "Pillai")
+summary(skulls.manova1, test = "wilks")
+
+summary.aov(skulls.manova1)
+cat("summary of aov")
+
+skulls.manova2 <- 
+  manova(cbind(mb,bg,bl,nh) ~ as,factor(epoch),
+         data = skulls,
+         subset = as.factor(epoch) %in% c("c400BC", "c200BC")
