@@ -1,6 +1,6 @@
 # Manova demo using Skulls dataset.
 
-# Add Your Name Here
+# Will Gruca
 
 rm(list = ls()) # clear out the variables from memory to make a clean execution of the code.
 
